@@ -11,6 +11,7 @@ class Subject {
   int currentYr11;
   int currentYr12;
   int? newYr10;
+  int? allocatedTeachers;
 
   void calculateNewYr10({
     required int totalCurrentEnrollments,
@@ -20,6 +21,12 @@ class Subject {
         (currentYr10 + currentYr11 + currentYr12) / totalCurrentEnrollments;
     double newEnrollments = totalNewEnrollments * weight;
     newYr10 = newEnrollments.round();
+  }
+
+  @override
+  String toString() {
+    var total = newYr10! + currentYr10 + currentYr11;
+    return "$subjectName total enrolments next year: $total, total teachers: $allocatedTeachers";
   }
 }
 
